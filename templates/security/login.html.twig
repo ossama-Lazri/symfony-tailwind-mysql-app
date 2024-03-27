@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+<form method="post" class="relative flex min-h-screen text-gray-900 antialiased flex-col justify-center overflow-hidden bg-gray-50 py-6 sm:py-12">
+    {% if error %}
+    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    {% if app.user %}
+    <div class="mb-3">
+        You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+    </div>
+    {% endif %}
+    <div class="relative py-3 sm:w-96 mx-auto text-center">
+        <span class="text-2xl font-light ">Login to your account</span>
+        <div class="mt-4 bg-gray-50 shadow-md rounded-lg text-left">
+            <div class="h-2 bg-gray-900 rounded-t-md"></div>
+            <div class="px-8 py-6 ">
+                <label for="inputEmail" class="block font-semibold"> Email </label>
+                <input type="email" value="{{ last_username }}" name="email" id="inputEmail" autocomplete="email" required autofocus class="border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-gray-900 focus:ring-1 rounded-md outline-none focus:outline-none">
+                <label for="inputPassword" class="block mt-3 font-semibold"> Password </label>
+                <input type="password" name="password" id="inputPassword" autocomplete="current-password" required class="border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-gray-900 focus:ring-1 rounded-md outline-none focus:outline-none">
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                <div class="flex justify-between items-baseline">
+                    <button type="submit" class="mt-4 bg-gray-900 text-gray-50 py-2 px-6 rounded-md hover:bg-gray-800">Sign in</button>
+                    <a href="#" class="text-sm hover:underline">Forgot password?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="h-screen bg-gray-50 flex flex-col justify-center items-center">
+        <h5 class="font-bold text-3xl text-gray-900 mb-6">home page</h5>
+        <a href="{{ path('index') }}" class="bg-gray-900 rounded-lg px-6 py-3 font-bold text-lg hover:bg-transparent hover:text-gray-900 hover:ring ring-gray-900 ring-1 transition-all duration-200 text-gray-50">Go to index</a>
+    </div>
+{% endblock %}
