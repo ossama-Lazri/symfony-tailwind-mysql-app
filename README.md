@@ -1,1 +1,1 @@
-A Symfony app styled with Tailwind CSS, integrating MySQL for data display.
+A Symfony app styled with TailwindCSS, integrating MySQL for data display.
